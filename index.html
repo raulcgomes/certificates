@@ -1,49 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Raul Gomes - Professional Certificates">
-  <title>Raul Gomes | Certificates</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="container">
-    <div class="eyebrow">Professional Portfolio</div>
-    <h1>Certificates</h1>
-    <p class="intro">
-      A collection of professional certifications, courses, conferences,
-      hackathons, expos and learning achievements.
-    </p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Raul Gomes - Professional Certificates" />
+    <title>Raul Gomes | Certificates</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="eyebrow">Certifications & Professional Development</div>
+      <h1>Certificates</h1>
+      <p class="intro">
+        A collection of professional certifications, courses, conferences,
+        hackathons, expos and learning achievements.
+      </p>
+    </header>
 
-  <main class="container">
-    <div class="section-title">
-      <h2>My Certificates</h2>
-      <span class="count" id="count"></span>
-    </div>
-    <section class="grid" id="certificates"></section>
-  </main>
+    <main class="container">
+      <div class="section-title">
+        <h2>My Certificates</h2>
+        <span class="count" id="count"></span>
+      </div>
+      <section class="grid" id="certificates"></section>
+    </main>
 
-  <footer>
-    <div class="container">Raul Gomes · Professional Certificates</div>
-  </footer>
+    <footer>
+      <div class="container">Raul Gomes · Professional Certificates</div>
+    </footer>
 
-  <script>
-    async function loadCertificates() {
-      const response = await fetch("certificates.json");
-      const certificates = await response.json();
+    <script>
+      async function loadCertificates() {
+        const response = await fetch("certificates.json");
+        const certificates = await response.json();
 
-      document.getElementById("count").textContent =
-        `${certificates.length} certificate${certificates.length === 1 ? "" : "s"}`;
+        document.getElementById("count").textContent =
+          `${certificates.length} certificate${certificates.length === 1 ? "" : "s"}`;
 
-      const grid = document.getElementById("certificates");
+        const grid = document.getElementById("certificates");
 
-      certificates.forEach(cert => {
-        const card = document.createElement("article");
-        card.className = "card";
+        certificates.forEach((cert) => {
+          const card = document.createElement("article");
+          card.className = "card";
 
-        card.innerHTML = `
+          card.innerHTML = `
           <a class="preview" href="${cert.image}" target="_blank" rel="noopener">
             <img src="${cert.image}" alt="${cert.title} certificate">
           </a>
@@ -62,15 +62,15 @@
           </div>
         `;
 
-        grid.appendChild(card);
-      });
-    }
+          grid.appendChild(card);
+        });
+      }
 
-    loadCertificates().catch(error => {
-      document.getElementById("certificates").innerHTML =
-        "<p>Unable to load certificates.</p>";
-      console.error(error);
-    });
-  </script>
-</body>
+      loadCertificates().catch((error) => {
+        document.getElementById("certificates").innerHTML =
+          "<p>Unable to load certificates.</p>";
+        console.error(error);
+      });
+    </script>
+  </body>
 </html>
