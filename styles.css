@@ -45,7 +45,7 @@ h1 {
   letter-spacing: -0.04em;
 }
 .intro {
-  max-width: 680px;
+  max-width: 1000px;
   margin: 22px 0 0;
   color: var(--muted);
   font-size: 18px;
