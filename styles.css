@@ -93,10 +93,16 @@ h1 {
 }
 .preview {
   display: block;
+  width: 100%;
+  padding: 0;
   aspect-ratio: 1.414 / 1;
   background: #fff;
   border-bottom: 1px solid var(--line);
   overflow: hidden;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  cursor: pointer;
 }
 .preview img {
   width: 100%;
@@ -150,9 +156,56 @@ h3 {
   text-decoration: none;
   font-size: 14px;
   font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
 .button:hover {
   background: #374151;
+}
+.certificate-modal {
+  position: fixed;
+  width: min(1100px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100% - 32px);
+  padding: 20px;
+  border: 0;
+  border-radius: 16px;
+  background: #fff;
+  color: var(--text);
+  overflow: auto;
+}
+.certificate-modal::backdrop {
+  background: rgb(17 24 39 / 78%);
+}
+.certificate-modal__close {
+  position: sticky;
+  top: 0;
+  float: right;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  margin: -10px -10px 0 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--text);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+.certificate-modal__image {
+  display: block;
+  clear: both;
+  width: 100%;
+  max-height: calc(100vh - 120px);
+  object-fit: contain;
+}
+.certificate-modal__title {
+  margin: 12px 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 14px;
 }
 footer {
   border-top: 1px solid var(--line);
